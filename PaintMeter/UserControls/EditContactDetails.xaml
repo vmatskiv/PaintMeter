@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="PaintMeter.UserControls.EditContactDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaintMeter.UserControls"
+        mc:Ignorable="d"
+        x:Name="parent"
+        d:DesignHeight="200" d:DesignWidth="250">
+    <Viewbox>
+        <Grid>
+            <Grid.DataContext>
+                <Binding Source="{StaticResource Locator}" />
+            </Grid.DataContext>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Left"
+                   FontWeight="Bold"
+                   Text="Dane przeprowadzającego pomiary"/>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Text="Imię i nazwisko:"/>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Text="Pozostałe dane:"/>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Left"
+                   FontWeight="Bold"
+                   Text="Dane urządzenia pomiarowego"/>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="4"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Text="Model:"/>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="5"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Text="Producent:"/>
+            <TextBlock Grid.Column="0"
+                   Grid.Row="6"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Text="Numer seryjny:"/>
+            <TextBox x:Name="name"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 Text="{Binding Edition.DataContactDetails.Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="otherDetails"
+                 Grid.Column="1"
+                 Grid.Row="2"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 Text="{Binding Edition.DataContactDetails.Other, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="model"
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 IsEnabled="False"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 Text="{Binding Edition.DataContactDetails.Model, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="manufacturer"
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 IsEnabled="False"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 Text="{Binding Edition.DataContactDetails.Manufacturer, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="serialNumber"
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 IsEnabled="False"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 Text="{Binding Edition.DataContactDetails.SerialNumber, UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

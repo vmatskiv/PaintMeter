@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PaintMeter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PortCom" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SetDateTimeOption" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SetPortMeterOption" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FolderOfMeasurements" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data\Measurements\</Value>
+    </Setting>
+    <Setting Name="FolderOfDataDetails" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data\DataDetails\</Value>
+    </Setting>
+    <Setting Name="FolderOfAuto" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data\Autos\</Value>
+    </Setting>
+    <Setting Name="IsAutomaticSearchPort" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsAutomaticDateTime" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IntervalConnectTimer" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="IntervalCheckExistingPortTimer" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="FolderOfConclusions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data\Conclusions\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

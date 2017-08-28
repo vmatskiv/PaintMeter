@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintMeter", "PaintMeter\PaintMeter.csproj", "{86E12A58-53E9-48A8-807E-2983FB100A16}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalator Miernik Lakieru", "Instalator Miernik Lakieru\Instalator Miernik Lakieru.vdproj", "{EF820131-EF95-472F-B35D-86A08CA46A8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E12_Service", "E12_Service\E12_Service.csproj", "{6D0BADB6-2E37-4F5D-8370-7DBAA076E7B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86E12A58-53E9-48A8-807E-2983FB100A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E12A58-53E9-48A8-807E-2983FB100A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E12A58-53E9-48A8-807E-2983FB100A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E12A58-53E9-48A8-807E-2983FB100A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF820131-EF95-472F-B35D-86A08CA46A8C}.Debug|Any CPU.ActiveCfg = Debug
+		{EF820131-EF95-472F-B35D-86A08CA46A8C}.Debug|Any CPU.Build.0 = Debug
+		{EF820131-EF95-472F-B35D-86A08CA46A8C}.Release|Any CPU.ActiveCfg = Release
+		{EF820131-EF95-472F-B35D-86A08CA46A8C}.Release|Any CPU.Build.0 = Release
+		{6D0BADB6-2E37-4F5D-8370-7DBAA076E7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0BADB6-2E37-4F5D-8370-7DBAA076E7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0BADB6-2E37-4F5D-8370-7DBAA076E7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0BADB6-2E37-4F5D-8370-7DBAA076E7B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://oger.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PaintMeter\\PaintMeter.csproj
+		SccProjectName1 = PaintMeter
+		SccLocalPath1 = PaintMeter
+		SccProjectUniqueName2 = Instalator\u0020Miernik\u0020Lakieru\\Instalator\u0020Miernik\u0020Lakieru.vdproj
+		SccProjectName2 = Instalator\u0020Miernik\u0020Lakieru
+		SccLocalPath2 = Instalator\u0020Miernik\u0020Lakieru
+		SccProjectUniqueName3 = E12_Service\\E12_Service.csproj
+		SccProjectName3 = E12_Service
+		SccLocalPath3 = E12_Service
+	EndGlobalSection
+EndGlobal
