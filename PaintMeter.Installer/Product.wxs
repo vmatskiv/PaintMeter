@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+    <Product Id="*" Name="PaintMeter" Language="1033" Version="1.0.0.0" Manufacturer="PaintMeter" UpgradeCode="51b554de-6b4b-41ef-b74e-79f0d6b3a4cf">
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+        <Feature Id="ProductFeature" Title="PaintMeter.Installer" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+            <ComponentRef Id="ApplicationShortcutDesktop" />
+        </Feature>
+        <PropertyRef Id="NETFRAMEWORK40FULL"/>
+        <Condition Message="This application requires .NET Framework 4. Please install the .NET Framework then run this installer again.">
+            <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+        </Condition>
+        <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+        <UI>
+            <UIRef Id="WixUI_InstallDir" />
+            <!-- Skip license dialog -->
+            <Publish Dialog="WelcomeDlg"
+                     Control="Next"
+                     Event="NewDialog"
+                     Value="InstallDirDlg"
+                     Order="2">1</Publish>
+            <Publish Dialog="InstallDirDlg"
+                     Control="Back"
+                     Event="NewDialog"
+                     Value="WelcomeDlg"
+                     Order="2">1</Publish>
+        </UI>
+    </Product>
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="DesktopFolder" Name="Desktop">
+                <Component Id="ApplicationShortcutDesktop" Guid="*">
+                    <Shortcut Id="ApplicationDesktopShortcut"
+                        Name="PaintMeter"
+                        Description="PaintMeter shortcut"
+                        Target="[INSTALLFOLDER]PaintMeter.exe"
+                        WorkingDirectory="INSTALLFOLDER"/>
+                    <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+                    <RegistryValue
+                        Root="HKCU"
+                        Key="Software/PaintMeter"
+                        Name="installed"
+                        Type="integer"
+                        Value="1"
+                        KeyPath="yes"/>
+                </Component>
+            </Directory>
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="PaintMeter">
+                    <Directory Id="dir52290D4CEBC2BCD4484F9F11DB1F0292" Name="Data">
+                        <Directory Id="dir52390D4CEBC2BCD4484F9F11DB1F0292" Name="Autos" />
+                        <Directory Id="dir52490D4CEBC2BCD4484F9F11DB1F0292" Name="Conclusions" />
+                        <Directory Id="dir52590D4CEBC2BCD4484F9F11DB1F0292" Name="DataDetails" />
+                        <Directory Id="dir52690D4CEBC2BCD4484F9F11DB1F0292" Name="Measurements" />
+                    </Directory>
+                    <Directory Id="dir51290D4CEBC2BCD4484F9F11DB1F0292" Name="de" />
+                    <Directory Id="dirC19E252B74BFDF7C514CB7D39A9C82F1" Name="es" />
+                    <Directory Id="dirB86804915337334E0AA431AE5D105208" Name="fr" />
+                    <Directory Id="dir5680184FD991B48E91A8A13CBD3881F7" Name="hu" />
+                    <Directory Id="dir1ECB84F854BAD2BDB19A6836A92F4B1A" Name="it" />
+                    <Directory Id="dir504176E12ED74050438D2A60950B4F6B" Name="Properties" />
+                    <Directory Id="dirAD3BB5411A14D27535E4BA4EC430DE3E" Name="pt-BR" />
+                    <Directory Id="dirADCD96648C9BF19E660E693E208B7E28" Name="Resources" />
+                    <Directory Id="dirB91265F383D93B44D5A8588A34CED943" Name="ro" />
+                    <Directory Id="dirF6C7418B4B19E09C242403A405BA6578" Name="ru" />
+                    <Directory Id="dirD9E6249B7ED574123EE17449DA0666C7" Name="sv" />
+                    <Directory Id="dir4B1FB0BD66B30053F14C457B447A741C" Name="zh-Hans" />
+                </Directory>
+            </Directory>
+        </Directory>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <Component Id="dir52290D4CEBC2BCD4484F9F11DB1F0295" Directory="dir52290D4CEBC2BCD4484F9F11DB1F0292" Guid="{F10CEEE5-B72D-4907-A933-DA97200F4325}">
+                <CreateFolder />
+            </Component>
+            <Component Id="dir52290D4CEBC2BCD4484F9F11DB1F0296" Directory="dir52390D4CEBC2BCD4484F9F11DB1F0292" Guid="{F10CEEE5-B72D-4907-A933-DA97200F4326}">
+                <CreateFolder />
+            </Component>
+            <Component Id="dir52290D4CEBC2BCD4484F9F11DB1F0297" Directory="dir52490D4CEBC2BCD4484F9F11DB1F0292" Guid="{F10CEEE5-B72D-4907-A933-DA97200F4327}">
+                <CreateFolder />
+            </Component>
+            <Component Id="dir52290D4CEBC2BCD4484F9F11DB1F0298" Directory="dir52590D4CEBC2BCD4484F9F11DB1F0292" Guid="{F10CEEE5-B72D-4907-A933-DA97200F4328}">
+                <CreateFolder />
+            </Component>
+
+            <Component Id="dir52290D4CEBC2BCD4484F9F11DB1F0299" Directory="dir52690D4CEBC2BCD4484F9F11DB1F0292" Guid="{F10CEEE5-B72D-4907-A933-DA97200F4329}">
+                <CreateFolder />
+            </Component>
+            
+            <Component Id="cmp48DCC89BACB6BCED9E17E0F0C5DB6B33" Directory="INSTALLFOLDER" Guid="{F10CEEE5-B72D-4907-A933-DA97200F4321}">
+                <File Id="fil245E3FDC9A7124FEB736AF1D98C1F2F0" KeyPath="yes" Source="$(var.AppBinDir)\GalaSoft.MvvmLight.dll" />
+            </Component>
+            <Component Id="cmpE51FE7F5E5A280A3941EB36C10D78A79" Directory="INSTALLFOLDER" Guid="{B8FA5469-757F-41F3-B286-4AD1276168AF}">
+                <File Id="fil4336107AD92C73765FD89B33239746FE" KeyPath="yes" Source="$(var.AppBinDir)\GalaSoft.MvvmLight.Extras.dll" />
+            </Component>
+            <Component Id="cmpF861A26D058D1C40E0E875C22569378D" Directory="INSTALLFOLDER" Guid="{D181CD65-2B66-4640-BB1B-D440B865B50A}">
+                <File Id="filB9CC1E41873E11C342C8B330C5763672" KeyPath="yes" Source="$(var.AppBinDir)\GalaSoft.MvvmLight.Extras.xml" />
+            </Component>
+            <Component Id="cmp6FBA4E7A19023788825DEEFB1924FE37" Directory="INSTALLFOLDER" Guid="{A04EEA0E-6864-4FA2-BB55-70ACB5490279}">
+                <File Id="fil7877C2A5C69B82D1A83EACFC6844C061" KeyPath="yes" Source="$(var.AppBinDir)\GalaSoft.MvvmLight.xml" />
+            </Component>
+            <Component Id="cmp62E38F2CDABCBEA77A8FF2D78275342E" Directory="INSTALLFOLDER" Guid="{59C39146-414D-46DE-8AAD-D51C26E8738B}">
+                <File Id="fil0BDA8A26776B10B4868EAEEA089D8E86" KeyPath="yes" Source="$(var.AppBinDir)\itextsharp.dll" />
+            </Component>
+            <Component Id="cmp75E25265202EB4F0845BE5695FA6D3EF" Directory="INSTALLFOLDER" Guid="{2A4120AF-9B7A-4B7E-A7E3-54D116016945}">
+                <File Id="fil66948C46661885A01F6C8A01FBDF3476" KeyPath="yes" Source="$(var.AppBinDir)\itextsharp.xml" />
+            </Component>
+            <Component Id="cmp45E2CF0EE48523E771A02E431F227170" Directory="INSTALLFOLDER" Guid="{8BB6346B-BE80-4E09-92EB-752B734F1495}">
+                <File Id="filC20A53C6B50CE8635CD1A1F2468D4A4D" KeyPath="yes" Source="$(var.AppBinDir)\Microsoft.Practices.ServiceLocation.dll" />
+            </Component>
+            <Component Id="cmp9F703F88304126BF1E124F9C9B8DC619" Directory="INSTALLFOLDER" Guid="{711198E7-85AE-4752-86E9-0241753E4840}">
+                <File Id="fil9BD4197068EAC720FE5C06679B7DBFB0" KeyPath="yes" Source="$(var.AppBinDir)\Microsoft.Practices.ServiceLocation.xml" />
+            </Component>
+            <Component Id="cmp53CBEBBA0541C054D5BD6059AD96A088" Directory="INSTALLFOLDER" Guid="{4526AE6B-65BA-4B1D-8DDA-F373BE306182}">
+                <File Id="fil39772826AF0004E33C922669BDCFD446" KeyPath="yes" Source="$(var.AppBinDir)\NLog.config" />
+            </Component>
+            <Component Id="cmpAE707495ECA39B39A6BB07C676EB7617" Directory="INSTALLFOLDER" Guid="{7A74B567-4B7B-43CB-8109-21EBE5FFAA0F}">
+                <File Id="filDD522245AE4188A6AC9D2B2D7603AE42" KeyPath="yes" Source="$(var.AppBinDir)\NLog.dll" />
+            </Component>
+            <Component Id="cmpD6AF423B9BFDA0650A8551917628E771" Directory="INSTALLFOLDER" Guid="{E79BD2B7-A627-41F9-9809-8149A92B26CB}">
+                <File Id="fil59663981D6E7130E7217C8C88A75F358" KeyPath="yes" Source="$(var.AppBinDir)\NLog.xml" />
+            </Component>
+            <Component Id="cmpBFBCC9F1A00BA311757C97C8408AFC6D" Directory="INSTALLFOLDER" Guid="{22DCA541-A323-4E94-A28D-0B012D51195A}">
+                <File Id="filAAE99D076D2B0BAC07B77A456D6450D0" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.exe" />
+            </Component>
+            <Component Id="cmp3466638F71ADE532ECA7AF57212BB696" Directory="INSTALLFOLDER" Guid="{FD31E96F-11E8-43A0-98F8-6FB825186FF6}">
+                <File Id="filD90D84CFA2411247866CE61136138872" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.exe.CodeAnalysisLog.xml" />
+            </Component>
+            <Component Id="cmp6C8C8531B83602D921354C34A33240AC" Directory="INSTALLFOLDER" Guid="{9F648AC7-6D6B-4E31-8EF0-4DD922BFCD72}">
+                <File Id="filC25B68F1DE08C279DE733B13277A507E" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.exe.config" />
+            </Component>
+            <Component Id="cmp6747084F2E7CD38BDED02390EF0C4837" Directory="INSTALLFOLDER" Guid="{80B9599E-8B5A-4826-B03F-71F605D76EB5}">
+                <File Id="filDF027558F9B0334BF41186C8BA873D75" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.exe.lastcodeanalysissucceeded" />
+            </Component>
+            <Component Id="cmp7A291D6C93F152BA43FCDB80FC80256F" Directory="INSTALLFOLDER" Guid="{F4A43573-2589-4A26-AC2C-DB80C01E0285}">
+                <File Id="fil2C8D986385F1182EE1F77E27E50FFF9F" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.vshost.exe" />
+            </Component>
+            <Component Id="cmp8CB0DC11344812830FD1DBA43CAA6CB7" Directory="INSTALLFOLDER" Guid="{E2F98E67-2606-4825-A0EB-59D9971FBD67}">
+                <File Id="fil6A50B85AA085FDA446FDB8B60C16938A" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.vshost.exe.config" />
+            </Component>
+            <Component Id="cmpE3D6F975252B3B43CBA76E0A4D1D3F92" Directory="INSTALLFOLDER" Guid="{6ED992EB-A9DF-451E-985D-A4C08ECFAE59}">
+                <File Id="fil23F04804C0AEF12C3E7D8C0CE7E6642C" KeyPath="yes" Source="$(var.AppBinDir)\PaintMeter.vshost.exe.manifest" />
+            </Component>
+            <Component Id="cmp988B07FF5BCF15B2AA5F9103E1EF96C0" Directory="INSTALLFOLDER" Guid="{8EADF56C-029C-4F5E-839F-97A419827E73}">
+                <File Id="filDB3768F6D79703AC2F57829528A2FE57" KeyPath="yes" Source="$(var.AppBinDir)\System.Windows.Controls.Input.Toolkit.dll" />
+            </Component>
+            <Component Id="cmpB1DD8AC26057D65DC96A9828E9085F2A" Directory="INSTALLFOLDER" Guid="{649F892C-AFBA-4E39-899F-6BADD9B238FF}">
+                <File Id="filBC63D5986259D2DFBBC2A209E2702DD6" KeyPath="yes" Source="$(var.AppBinDir)\System.Windows.Controls.Layout.Toolkit.dll" />
+            </Component>
+            <Component Id="cmp126F38E0CBC72F8CE12E1B11924F5779" Directory="INSTALLFOLDER" Guid="{C3AD5370-70B7-4940-9805-55FFFE963228}">
+                <File Id="fil5FDFC5FB5BF008486EB9F39C3F16CDC9" KeyPath="yes" Source="$(var.AppBinDir)\System.Windows.Interactivity.dll" />
+            </Component>
+            <Component Id="cmp157AE939B1402FDBFB1AF5B3EC1E7745" Directory="INSTALLFOLDER" Guid="{DE2E9536-AE53-459D-94C5-05870097C728}">
+                <File Id="fil5A7B93AF779F928F377928E4D8768DF1" KeyPath="yes" Source="$(var.AppBinDir)\System.Windows.Interactivity.xml" />
+            </Component>
+            <Component Id="cmpA6037A99AE47595FFF0E73FBCFD72794" Directory="INSTALLFOLDER" Guid="{78C87D4C-BB2D-4199-8601-EE14F64C6196}">
+                <File Id="fil3F75E0BF009BC295F92AB8D1D6BE6D13" KeyPath="yes" Source="$(var.AppBinDir)\WPFToolkit.dll" />
+            </Component>
+            <Component Id="cmp5C2CE8B21A474763929CE389432C3971" Directory="INSTALLFOLDER" Guid="{6065B284-E8B6-4E3B-9B0D-3317CCB3E78D}">
+                <File Id="filEE1B4114E13BFFD2A80F2517610C4ECF" KeyPath="yes" Source="$(var.AppBinDir)\Xceed.Wpf.AvalonDock.dll" />
+            </Component>
+            <Component Id="cmp1B5353502ECB4D3C5FAC0FF21ED30AE9" Directory="INSTALLFOLDER" Guid="{9C797AE6-650F-4E0F-B937-5EF2BBA5D3E6}">
+                <File Id="fil51EBE20D9475B18CB0234A4F8BD178A4" KeyPath="yes" Source="$(var.AppBinDir)\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
+            </Component>
+            <Component Id="cmp05877ED07FDC142D110D58388C3D59C2" Directory="INSTALLFOLDER" Guid="{896E3820-D56C-4FBD-86D9-981D9AC5C447}">
+                <File Id="filEE3EA627AAC831C95BD69B2F62008EE4" KeyPath="yes" Source="$(var.AppBinDir)\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
+            </Component>
+            <Component Id="cmpF01060D892D8A3DD8DB728FB1FB3855E" Directory="INSTALLFOLDER" Guid="{9FB15B97-28C5-46AB-BCCD-676A6CAA6827}">
+                <File Id="filCE8CB14C22C8DDF45F151CFFD776F4CC" KeyPath="yes" Source="$(var.AppBinDir)\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
+            </Component>
+            <Component Id="cmpC944BD05383C9873995FEA0647449B57" Directory="INSTALLFOLDER" Guid="{0103A95E-0AB3-41FD-8FE9-D635C1659697}">
+                <File Id="filFBB929E921B44DBECE883825997EE548" KeyPath="yes" Source="$(var.AppBinDir)\Xceed.Wpf.DataGrid.dll" />
+            </Component>
+            <Component Id="cmpAE5CF6E580155AE59ACED974D0B4979D" Directory="INSTALLFOLDER" Guid="{03C5FA51-F1CF-47D3-BCC3-77D40CD1D687}">
+                <File Id="fil2EFE6E92A634C562AAE81D3319452303" KeyPath="yes" Source="$(var.AppBinDir)\Xceed.Wpf.Toolkit.dll" />
+            </Component>
+            <Component Id="cmp0CF99D5A978BDF9AA88A567C8BC9E68A" Directory="dir51290D4CEBC2BCD4484F9F11DB1F0292" Guid="{4C43386C-045E-4152-BFED-EC325FC48F46}">
+                <File Id="filFA9E7F5EC605DEE8CD1D732F91F75A62" KeyPath="yes" Source="$(var.AppBinDir)\de\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmp40C5DDB192EA7EA4F0A3CC8A20F9BF1B" Directory="dirC19E252B74BFDF7C514CB7D39A9C82F1" Guid="{B261667A-4F62-4FCF-B81B-49BEC0B001D6}">
+                <File Id="fil61B5482E5607180C13586C397B3579A8" KeyPath="yes" Source="$(var.AppBinDir)\es\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmpCED379FBB3D0EAF3219F688D09B36B53" Directory="dirB86804915337334E0AA431AE5D105208" Guid="{D2DBD947-DC2A-4BE5-A420-EB5D61F97CBA}">
+                <File Id="fil1D61F738FE2856E5541B75FF38EFD60D" KeyPath="yes" Source="$(var.AppBinDir)\fr\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmp594DDA3587238F8BC0D3AD45C18104FC" Directory="dir5680184FD991B48E91A8A13CBD3881F7" Guid="{7ABE279F-E41A-49AA-96D9-4C870A60D673}">
+                <File Id="fil48BEA32814808CFF841D1874F25C4DCF" KeyPath="yes" Source="$(var.AppBinDir)\hu\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmpF6B9A31013AB8952E17D03C52E487124" Directory="dir1ECB84F854BAD2BDB19A6836A92F4B1A" Guid="{1D46511C-D5F1-4CFF-8E63-B273DB2A0950}">
+                <File Id="fil4BD93A128DCDB907DEAC2FB46E62107E" KeyPath="yes" Source="$(var.AppBinDir)\it\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmp4216AB557E68C783D989EB20DF618F6A" Directory="dir504176E12ED74050438D2A60950B4F6B" Guid="{7E0E394D-DB28-4CC3-ABD0-7CE3725E0CB4}">
+                <File Id="filBF339294D2D3E241ACEDCAE5377F78E0" KeyPath="yes" Source="$(var.AppBinDir)\Properties\Settings.settings" />
+            </Component>
+            <Component Id="cmp435B028751F5815813F1BC3BF001D13D" Directory="dirAD3BB5411A14D27535E4BA4EC430DE3E" Guid="{9BC3ACE1-1184-4701-9E37-EC1646CC04E3}">
+                <File Id="fil145E91B8E29E46577BD92070B0F50F1C" KeyPath="yes" Source="$(var.AppBinDir)\pt-BR\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmp0B7021BD21FAB78875CF7AAE0C67DC4E" Directory="dirADCD96648C9BF19E660E693E208B7E28" Guid="{3EF634A0-A2AD-4CD4-A6C1-A5E2C49F9786}">
+                <File Id="filDF140E181E06DDA88753EF5D918C0AF1" KeyPath="yes" Source="$(var.AppBinDir)\Resources\logo.ico" />
+            </Component>
+            <Component Id="cmp2363CF265E51B8632995D888A27B4B74" Directory="dirADCD96648C9BF19E660E693E208B7E28" Guid="{2C6CB3B1-84D8-417D-A296-4A12EC5D1576}">
+                <File Id="fil3324371108A7DFBBE24E23841EB0A066" KeyPath="yes" Source="$(var.AppBinDir)\Resources\logo.png" />
+            </Component>
+            <Component Id="cmp6B9576338A1154D20D5B829BF4A6CFAC" Directory="dirADCD96648C9BF19E660E693E208B7E28" Guid="{678886FA-5CA2-45B7-8564-EE2C81983AC7}">
+                <File Id="fil44540A2F288DC4CDBA870E9D8C0AE9D6" KeyPath="yes" Source="$(var.AppBinDir)\Resources\male.bmp" />
+            </Component>
+            <Component Id="cmpD6D5AD604FCF473362BED37D6D15B5AF" Directory="dirB91265F383D93B44D5A8588A34CED943" Guid="{7BC5AD89-B389-4052-8D29-7D472AC30531}">
+                <File Id="filF7D9E7C0D925E95C85B666250334C35B" KeyPath="yes" Source="$(var.AppBinDir)\ro\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmpB4475F55C73DCEF0FD4FFC1C73C0437F" Directory="dirF6C7418B4B19E09C242403A405BA6578" Guid="{646A5B6F-B3B7-45E3-B0D9-E930F1EE4033}">
+                <File Id="filA5E261B8011CBBCEEC28B2B081293F60" KeyPath="yes" Source="$(var.AppBinDir)\ru\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmp6D314660CF1D1502370C6A98736D0EDE" Directory="dirD9E6249B7ED574123EE17449DA0666C7" Guid="{C55B912D-8F21-4920-A574-C39DAF2F7E25}">
+                <File Id="fil397B1824C07E7267AE1F4408966AEBEB" KeyPath="yes" Source="$(var.AppBinDir)\sv\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+            <Component Id="cmp540F5289462D4473B341F344A520F5A7" Directory="dir4B1FB0BD66B30053F14C457B447A741C" Guid="{0D00C8B0-41D1-41FC-8C31-901E581EB2C2}">
+                <File Id="fil5094E3EB08149F5900A7F45009DB1F93" KeyPath="yes" Source="$(var.AppBinDir)\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

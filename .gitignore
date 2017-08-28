@@ -1,3 +1,5 @@
 packages/
 PaintMeter/obj/
 PaintMeter/bin/
+PaintMeter.Installer/bin/
+PaintMeter.Installer/obj/
